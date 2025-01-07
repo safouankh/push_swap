@@ -1,0 +1,48 @@
+#include "push_swap.h"
+#include <stdio.h>
+
+int	check_sort(char **str)
+{
+	int i;
+	int nbr1;
+
+	i = 0;
+	while (str[i])
+	{
+		nbr1 = ft_atoi(str[i]);
+		if (str[i + 1] && nbr1 > ft_atoi(str[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_doplicates(char **str)
+{
+	int i;
+	int j;
+	int	nbr;
+
+	i = 0;
+	while(str[i])
+	{
+		j = 0;
+		nbr = ft_atoi(str[i]);
+		while (str[j])
+		{
+			if (nbr == ft_atoi(str[j]) && j != i)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+int main(int ac, char *av[])
+{
+	if (ac == 0)
+		return 0;
+	av = ft_split(av[1], ' ');
+	printf("%d",check_sort(av));
+	while(1);
+}
