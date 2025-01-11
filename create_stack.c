@@ -6,7 +6,7 @@
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 13:40:29 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/01/07 11:31:21 by sael-kha         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:11:27 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_push_swap	*create_node(int value)
 	node->value = value;
 	node->next = NULL;
 	node->prev = NULL;
+	node->cheapest = 0;
 	node->index = 0;
 	return (node);
 }
@@ -39,17 +40,22 @@ int	stack_line(t_push_swap *stack)
 	return (i);
 }
 
-int	helper(char **str, int tf)
+static int	helper(char **str, int tf)
 {
 	if (!check_sentacs(str + tf) 
 		|| !check_numbers(str + tf) 
-		|| !check_doplicates(str + tf) 
-		|| !check_sort(str + tf))
+		|| !check_doplicates(str + tf))
 	{
 		if (tf == 0)
 			free_str(str);
-		write(1,"error\n",6);
+		write(2, "error\n", 6);
 		return (0);
+	}
+	if (!check_sort(str + tf))
+	{
+		if (tf == 0)
+			free_str(str);
+		exit(0);
 	}
 	return (1);
 }
