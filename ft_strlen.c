@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 11:45:58 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/01/04 11:45:58 by sael-kha         ###   ########.fr       */
+/*   Created: 2024/10/21 21:51:24 by sael-kha          #+#    #+#             */
+/*   Updated: 2024/10/23 15:54:48 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 

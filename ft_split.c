@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 11:46:14 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/01/04 11:46:14 by sael-kha         ###   ########.fr       */
+/*   Created: 2024/11/08 13:19:10 by sael-kha          #+#    #+#             */
+/*   Updated: 2024/11/08 13:19:10 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	count_words(const char *s, char c)
+static size_t	count_words(char *s, char c)
 {
 	size_t	counter;
 	int		i;
@@ -42,7 +42,7 @@ static char	**ft_free(char **str)
 	return (NULL);
 }
 
-static char	**ft_setwords(char **res, const char *s, char c)
+static char	**ft_setwords(char **res, char *s, char c)
 {
 	int		i;
 	int		j;
@@ -70,7 +70,7 @@ static char	**ft_setwords(char **res, const char *s, char c)
 	return (res);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	size_t	num;
 	char	**res;

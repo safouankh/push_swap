@@ -1,28 +1,24 @@
 NAME = push_swap
-ARCHIVE = push_swap.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -O2 
-MAKE_LIB = ranlib
-
-SRCS = $(wildcard *.c)
+CFLAGS = -Wall -Werror -Wextra
+SRCS =	error_free.c main.c rotate.c ft_split.c push.c sort.c reverse_rotate.c\
+		ft_strlcpy.c push_swap_init.c stack_init.c ft_strlen.c swap.c
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(ARCHIVE)
-	$(CC) $< -o $@
-
-$(ARCHIVE) : $(OBJS)
-	$(MAKE_LIB) $(ARCHIVE) $^
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@ 
-	
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 clean :
-	rm -f $(OBJS) $(ARCHIVE)
+	@rm -rf $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -rf $(NAME)
+
 re : fclean all
 
 .PHONY : all clean fclea re

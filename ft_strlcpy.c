@@ -6,13 +6,13 @@
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:51:20 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/01/04 11:46:04 by sael-kha         ###   ########.fr       */
+/*   Updated: 2025/01/19 10:55:52 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
 	size_t	i;
 
