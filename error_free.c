@@ -6,7 +6,7 @@
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 15:05:50 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/02/09 12:03:50 by sael-kha         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:49:20 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_matrix(char **argv)
 	int	i;
 
 	i = 0;
-	if (argv == NULL || *argv == NULL)
+	if (argv == NULL)
 		return ;
 	while (argv[i])
 		free(argv[i++]);
@@ -51,9 +51,13 @@ void	error_free(t_stack_node **a, char **argv)
 
 int	error_syntax(char *str_nbr)
 {
-	if (!(*str_nbr == '+' || *str_nbr == '-' || (*str_nbr >= '0' && *str_nbr <= '9')))
+	if (!(*str_nbr == '+'
+			|| *str_nbr == '-'
+			|| (*str_nbr >= '0' && *str_nbr <= '9')))
 		return (1);
-	if ((*str_nbr == '+' || *str_nbr == '-') && !(str_nbr[1] >= '0' && str_nbr[1] <= '9'))
+	if ((*str_nbr == '+'
+			|| *str_nbr == '-')
+		&& !(str_nbr[1] >= '0' && str_nbr[1] <= '9'))
 		return (1);
 	while (*++str_nbr)
 	{

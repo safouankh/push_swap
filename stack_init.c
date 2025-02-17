@@ -6,7 +6,7 @@
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 15:05:06 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/02/08 18:02:40 by sael-kha         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:50:48 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	stack_len(t_stack_node *stack)
 {
 	int	count;
 
-	if (NULL == stack)
+	if (stack == NULL)
 		return (0);
 	count = 0;
 	while (stack)
@@ -27,11 +27,11 @@ int	stack_len(t_stack_node *stack)
 	return (count);
 }
 
-static long	ft_atol(const char *str)
+static long long	ft_atol(const char *str)
 {
-	long	num;
-	int		isneg;
-	int		i;
+	long long	num;
+	int			isneg;
+	int			i;
 
 	num = 0;
 	isneg = 1;
@@ -55,7 +55,7 @@ static long	ft_atol(const char *str)
 
 t_stack_node	*find_last_node(t_stack_node *head)
 {
-	if (NULL == head)
+	if (head == NULL)
 		return (NULL);
 	while (head->next)
 		head = head->next;
@@ -67,14 +67,14 @@ void	append_node(t_stack_node **stack, int nbr)
 	t_stack_node	*node;
 	t_stack_node	*last_node;
 
-	if (NULL == stack)
+	if (stack == NULL)
 		return ;
 	node = malloc(sizeof(t_stack_node));
-	if (NULL == node)
+	if (node == NULL)
 		return ;
 	node->next = NULL;
 	node->value = nbr;
-	if (NULL == *stack)
+	if (*stack == NULL)
 	{
 		*stack = node;
 		node->prev = NULL;
@@ -93,12 +93,16 @@ void	stack_init(t_stack_node **a, char **argv)
 	int		i;
 
 	i = 0;
+	if (!*argv)
+		error_free(a, argv);
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
 			error_free(a, argv);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
+			error_free(a, argv);
+		if (ft_strlen(argv[i]) > 11)
 			error_free(a, argv);
 		if (error_repetition(*a, (int)nbr))
 			error_free(a, argv);

@@ -6,7 +6,7 @@
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 15:05:54 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/02/08 18:23:43 by sael-kha         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:51:31 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ size_t			ft_strlcpy(char *dst, char *src, size_t size);
 size_t			ft_strlen(char *s);
 
 //*** Handle errors-free ***
+int				is_empty(char *str);
 void			free_matrix(char **argv);
 void			error_free(t_stack_node **a, char **argv);
 void			free_stack(t_stack_node **stack);
@@ -49,7 +50,7 @@ bool			stack_sorted(t_stack_node *stack);
 int				stack_len(t_stack_node *stack);
 t_stack_node	*find_last_node(t_stack_node *head);
 t_stack_node	*ret_smallest(t_stack_node *stack);
-void	set_target_node(t_stack_node *a, t_stack_node *b);
+void			set_target_node(t_stack_node *a, t_stack_node *b);
 
 //*** Algorithms ***
 void			sort_3(t_stack_node **a);

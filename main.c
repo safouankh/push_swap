@@ -6,7 +6,7 @@
 /*   By: sael-kha <sael-kha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 15:05:23 by sael-kha          #+#    #+#             */
-/*   Updated: 2025/02/09 10:45:04 by sael-kha         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:35:43 by sael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack_node	*ret_smallest(t_stack_node *stack)
 	long			smallest;
 	t_stack_node	*smallest_node;
 
-	if (NULL == stack)
+	if (stack == NULL)
 		return (NULL);
 	smallest = LONG_MAX;
 	while (stack)
@@ -82,6 +82,11 @@ void	set_target_node(t_stack_node *a,
 	}
 }
 
+void	ff()
+{
+	system("leaks -q push_swap");
+}
+
 int	main(int ac, char *av[])
 {
 	t_stack_node	*a;
@@ -89,8 +94,9 @@ int	main(int ac, char *av[])
 
 	a = NULL;
 	b = NULL;
+	atexit(ff);
 	if (ac == 1)
-		return (1);
+		return (0);
 	else if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
